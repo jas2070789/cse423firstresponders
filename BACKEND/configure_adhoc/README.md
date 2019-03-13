@@ -8,9 +8,9 @@ The /etc/network/interfaces file has been made obsolete in favor of dhcpcd.conf,
 denyinterfaces eth0 wlan0
 ```
 
-*Note: This is assuming the only network interfaces active on the RPi are eth0 and wlan0. If there are more, they must be appended to this command. It is crucial that the wireless interface being used to configure the ad-hoc connection is blocked (in this case, wlan0).*
+*Note: This is assuming the only network interfaces active on the RPi are eth0 and wlan0. If there are more, they must be appended to this command. It is crucial that the wireless interface being used to configure the ad-hoc connection is denied (in this case, wlan0). Use `sudo iwconfig` to query a list of the device's network interfaces.*
 
-The above command tells the RPi that it shouldn’t configure its own wireless interfaces (using  and it should instead configure via /etc/network/interfaces.
+The above command tells the RPi that it shouldn’t configure its network interfaces via /etc/dhcpcd.config and it should instead configure via /etc/network/interfaces.
 
 We then add the following parameters to the /etc/network/interfaces file:
 
