@@ -1,4 +1,4 @@
-# CSE423/424 ASU F18/S19 Capstone - Benchmark: First Responder Tracking System
+# CSE423/424 ASU Capstone - Benchmark: First Responder Tracking System
 #### Members: Patrick Archer, Joshua Owens, Haoyu Xu, Jason Zellers
 
 ## Motivation
