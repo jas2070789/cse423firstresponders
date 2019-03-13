@@ -1,6 +1,6 @@
-# CSE423/424 ASU Capstone Project - Benchmark: First Responder Tracking System
-Members: Patrick Archer, Joshua Owens, Haoyu Xu, Jason Zellers
----
+# CSE423/424 ASU F18/S19 Capstone Project - Benchmark: First Responder Tracking System
+###### Members: Patrick Archer, Joshua Owens, Haoyu Xu, Jason Zellers
+
 Firefighters commonly experience uncontrolled chaos on their jobs as they rush into burning buildings to save anyone trapped inside as well as fighting to contain the damage from fires. Many of them navigate areas with poor visibility and accessibility, and general awareness of their surrounding teammates can be quite limited. Existing methods of tracking firefighter location provides little to no usable, reliable data, putting firefighters in a great amount of risk. Improved methods of tracking first responder location would promote firefighter safety by providing constant, reliable information of their location and the locations of other firefighters. Promoting better coordination and teamwork on the job by providing accurate location data would allow firefighters to minimize the potential risk to their lives and the lives of civilians in need.
 
 The system will also allow for better distribution of first responders by updating command central with real-time data on the locations and movements of all personnel that are currently in the building.  
