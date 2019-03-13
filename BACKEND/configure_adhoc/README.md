@@ -22,6 +22,6 @@ iface wlan0 inet static
   wireless-mode ad-hoc
 ```
   
-The value for the address will change depending on what node is being configured. 10.0.0.1 will always belong to the Central hub, however for each anchor the address needs to be incremented in the /24 subnet (so 10.0.0.2, 10.0.0.3, etc.).
+The value for the address will change depending on what node is being configured. 10.0.0.1 will always belong to the Central Hub, however for each Anchor the address needs to be incremented in the /24 subnet (so Anchor_1 = 10.0.0.2, A_2 = 10.0.0.3, etc.).
 
 After saving the file, it’s likely that you can just restart the wireless interface and everything should be working correctly. However, to ensure proper operability, it’s better to just reboot the system.
