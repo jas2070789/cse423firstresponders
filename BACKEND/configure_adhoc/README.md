@@ -26,4 +26,26 @@ iface wlan0 inet static
   
 The value for the address will change depending on what node is being configured. 10.0.0.1 will always belong to the Central Hub, however for each Anchor the address needs to be incremented in the /24 subnet (so Anchor1 = 10.0.0.2, A2 = 10.0.0.3, etc.). the netmask, wireless-channel, essid, and mode all remain the same.
 
-After saving the file, restart the device for changes to take full effect.
+After saving the file, restart the device for changes to take full effect. Upon next boot, the device's wlan0 interface will be connected to the ADHOCTEST network.
+
+This process must be repeated for each other node that wants to connect to the WADHOC. However, some parameters are slightly modified. 
+
+For example, this is what an Anchor device must modify in the two files:
+
+- In /etc/dhcpcd.config:
+```
+denyinterfaces eth0 wlan0
+```
+
+- In /etc/network/interfaces (note the different address):
+```
+auto wlan0
+iface wlan0 inet static
+  address 10.0.0.2
+  netmask 255.255.255.0
+  wireless-channel 1
+  wireless-essid ADHOCTEST
+  wireless-mode ad-hoc
+```
+
+
