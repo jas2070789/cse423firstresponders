@@ -1,4 +1,6 @@
-**Raspbian Stretch changed much of the networking setups and protocols that were used in previous builds "Wheezy" and "Jessie", so in order to actually set up an AD-HOC network, a few of those things had to be disabled.**
+**Raspbian Stretch changed much of the networking setups and protocols that were used in previous builds "Wheezy" and "Jessie", so in order to actually set up a Wireless AD-HOC ("WADHOC") network, a few of those things had to be disabled.**
+
+For each device that needs to connect to the WADHOC network, /etc/dhcpcd.conf and /etc/network/interfaces must be modified accordingly. The following information represents what would have to be done to configure the Central Hub. When configuring the WADHOC on any other device (Anchors, client computer, etc.) the values for certain parameters will need to be changed accordingly. These changes will be discussed in detail further in this document.
 
 The /etc/network/interfaces file has been made obsolete in favor of dhcpcd.conf, found in /etc. However, for a simple Ad-hoc network, we have no need to utilize a DHCP server, since the Pis only need to be able to talk to each other. We need to stop the Pi from automatically configuring its wireless interface to its default value. We do that by adding the following command to the top of /etc/dhcpcd.conf:
 
@@ -22,6 +24,6 @@ iface wlan0 inet static
   wireless-mode ad-hoc
 ```
   
-The value for the address will change depending on what node is being configured. 10.0.0.1 will always belong to the Central Hub, however for each Anchor the address needs to be incremented in the /24 subnet (so Anchor_1 = 10.0.0.2, A_2 = 10.0.0.3, etc.).
+The value for the address will change depending on what node is being configured. 10.0.0.1 will always belong to the Central Hub, however for each Anchor the address needs to be incremented in the /24 subnet (so Anchor_1 = 10.0.0.2, A_2 = 10.0.0.3, etc.). the netmask, wireless-channel, essid, and mode all remain the same.
 
-After saving the file, it’s likely that you can just restart the wireless interface and everything should be working correctly. However, to ensure proper operability, it’s better to just reboot the system.
+After saving the file, restart the device for changes to take full effect.
