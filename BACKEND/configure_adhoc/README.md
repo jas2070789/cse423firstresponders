@@ -8,7 +8,7 @@ The /etc/network/interfaces file has been made obsolete in favor of dhcpcd.conf,
 denyinterfaces eth0 wlan0
 ```
 
-*Note: This is assuming the only network interfaces active on the RPi are eth0 and wlan0. If there are more, they must be appended to this command. It is crucial that the wireless interface eing used to configure the ad-hoc connection is blocked (in this case, wlan0).*
+*Note: This is assuming the only network interfaces active on the RPi are eth0 and wlan0. If there are more, they must be appended to this command. It is crucial that the wireless interface being used to configure the ad-hoc connection is blocked (in this case, wlan0).*
 
 The above command tells the RPi that it shouldn’t configure its own wireless interfaces (using  and it should instead configure via /etc/network/interfaces.
 
@@ -24,6 +24,6 @@ iface wlan0 inet static
   wireless-mode ad-hoc
 ```
   
-The value for the address will change depending on what node is being configured. 10.0.0.1 will always belong to the Central Hub, however for each Anchor the address needs to be incremented in the /24 subnet (so Anchor_1 = 10.0.0.2, A_2 = 10.0.0.3, etc.). the netmask, wireless-channel, essid, and mode all remain the same.
+The value for the address will change depending on what node is being configured. 10.0.0.1 will always belong to the Central Hub, however for each Anchor the address needs to be incremented in the /24 subnet (so Anchor1 = 10.0.0.2, A2 = 10.0.0.3, etc.). the netmask, wireless-channel, essid, and mode all remain the same.
 
 After saving the file, restart the device for changes to take full effect.
