@@ -24,11 +24,11 @@ iface wlan0 inet static
   wireless-mode ad-hoc
 ```
   
-The value for the address will change depending on what node is being configured. 10.0.0.1 will always belong to the Central Hub, however for each Anchor the address needs to be incremented in the /24 subnet (so Anchor1 = 10.0.0.2, A2 = 10.0.0.3, etc.). the netmask, wireless-channel, essid, and mode all remain the same.
+The value for the address will change depending on what node is being configured. 10.0.0.1 will always belong to the Central Hub, however for each Anchor the address needs to be incremented in the /24 subnet (so Anchor1 = 10.0.0.2, A2 = 10.0.0.3, etc.). The netmask, wireless-channel, essid, and mode all remain the same.
 
-After saving the file, restart the device for changes to take full effect. Upon next boot, the device's wlan0 interface will be connected to the ADHOCTEST network.
+After saving the file, restart the device for changes to take full effect. Upon next boot, the device's wlan0 interface will be connected to the ADHOCTEST network. All devices 
 
-This process must be repeated for each other node that wants to connect to the WADHOC. However, some parameters are slightly modified. 
+**This process must be repeated for each other node that wants to connect to the WADHOC. However, some parameters are slightly modified. **
 
 For example, this is what an Anchor device must modify in the two files:
 
