@@ -41,7 +41,7 @@ For example, this is what an Anchor device must modify in the two files:
 denyinterfaces eth0 wlan0
 ```
 
-- In /etc/network/interfaces (*note the different address*):
+- In /etc/network/interfaces (*note the different address compared to the Central Hub*):
 ```
 auto wlan0
 iface wlan0 inet static
