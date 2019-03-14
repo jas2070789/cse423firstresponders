@@ -2,7 +2,7 @@
 
 ###### Target Operating System: Raspbian Stretch (Full) v.2018-11-13
 
-**Raspbian Stretch changed much of the networking setups and protocols that were used in previous builds "Wheezy" and "Jessie". As a result, in order to actually set up a Wireless AD-HOC ("WADHOC") network, a few of those changes will need to be bypassed. This README details how to accomplish this.**
+***Raspbian Stretch changed much of the networking setups and protocols that were used in previous builds "Wheezy" and "Jessie". As a result, in order to actually set up a Wireless AD-HOC ("WADHOC") network, a few of those changes will need to be bypassed. This README details how to accomplish this.***
 
 For each device that needs to connect to the WADHOC network, /etc/dhcpcd.conf and /etc/network/interfaces must be modified. The following information represents what would have to be done to configure the Central Hub device. When configuring the WADHOC on subsequent devices, the values for certain parameters will need to be changed accordingly. These changes will be discussed in detail further in this document.
 
