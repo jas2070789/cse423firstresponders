@@ -1,4 +1,4 @@
-# Overview of "Back-End" System
+# Overview of "Back-End" Sub-System
 
 The “back-end” sub-system consists of any number Anchor devices, one Central Hub ("CH") device, and a client machine that queries location data from the CH. These devices are all connected to a peer-to-peer Wireless Ad-Hoc network ("WADHOC").
 
