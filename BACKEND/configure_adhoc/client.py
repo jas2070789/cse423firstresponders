@@ -23,4 +23,6 @@ sock.sendto(MESSAGE, (UDP_IP, UDP_PORT))
 
 # receive reply message from server
 data, addr = sock.recvfrom(1024)
+
+# for debug
 print(str(data))
