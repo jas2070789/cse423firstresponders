@@ -32,13 +32,13 @@ def mainMenu():
     # fr1.changeCurrentFloor('F3')
     # print("[CONSOLE] Change CF to F2: ", fr1.current_floor)
 
-    print("\n\t~~ MAIN MENU ~~")
+    print("\n\t======== MAIN MENU ========")
     userCMD = input("""
     Please enter a cmd and press return.
     0 - Quit Program
-    1 - cmd1
-    2 - cmd2
-    3 - cmd3
+    1 - temporary_cmd_1
+    2 - temporary_cmd_2
+    3 - temporary_cmd_3
     \n""")
 
     # # debug
