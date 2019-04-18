@@ -25,7 +25,7 @@ def mainMenu():
 
     # # debug: create initial firstResponder object to test valid OOP configuration
     # fr1 = firstResponder('001', 'A1', 'F1')
-    # print("[CONSOLE] Initial: ", fr1.b_id)
+    # print("[CONSOLE] Initial: ", fr1.uuid)
     # fr1.changeClosestAnchor('A2')
     # print("[CONSOLE] Change CA to A2: ", fr1.closest_anchor)
     # fr1.changeCurrentFloor('F3')

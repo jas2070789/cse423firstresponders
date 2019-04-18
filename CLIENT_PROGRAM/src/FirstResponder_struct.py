@@ -8,9 +8,9 @@
 class firstResponder():
 
     # object constructor
-    def __init__(self, b_id, closest_anchor, current_floor):
+    def __init__(self, uuid, closest_anchor, current_floor):
         # beacon ID
-        self.b_id = b_id
+        self.uuid = uuid
         # current floor that the beacon is on
         self.current_floor = current_floor
         # closest anchor that the beacon is near
@@ -18,7 +18,7 @@ class firstResponder():
 
     # get ID of wearable device
     def getID(self):
-        return self.b_id
+        return self.uuid
 
     # change current floor of FR beacon
     def changeCurrentFloor(self, new_cf):
