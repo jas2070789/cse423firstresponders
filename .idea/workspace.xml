@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9e600645-c461-411f-bb22-62401e894db4" name="Default Changelist" comment="" />
+    <list default="true" id="9e600645-c461-411f-bb22-62401e894db4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/CLIENT_PROGRAM/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/CLIENT_PROGRAM/src/main.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,26 +40,26 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="md" value="1" />
-          <entry key="py" value="6" />
+          <entry key="py" value="7" />
           <entry key="pyi" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Markdown" value="1" />
-          <entry key="Python" value="4" />
+          <entry key="Python" value="5" />
           <entry key="PythonStub" value="1" />
           <entry key="Scratch" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="4" />
+          <entry key="py" value="170" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="4" />
+          <entry key="Python" value="170" />
         </counts>
       </usages-collector>
     </session>
@@ -70,8 +72,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CLIENT_PROGRAM/src/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="48" lean-forward="true" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
+            <state relative-caret-position="373">
+              <caret line="48" column="91" selection-start-line="48" selection-start-column="91" selection-end-line="48" selection-end-column="91" />
               <folding>
                 <element signature="e#185#195#0" expanded="true" />
               </folding>
@@ -242,8 +244,8 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" show_stripe_button="false" weight="0.32960597" />
-      <window_info anchor="right" id="TODO" order="4" sideWeight="0.5029703" side_tool="true" visible="true" weight="0.32960597" />
-      <window_info active="true" anchor="right" id="Python Console" order="5" sideWeight="0.4970297" visible="true" weight="0.32960597" />
+      <window_info active="true" anchor="right" id="TODO" order="4" sideWeight="0.5029703" side_tool="true" visible="true" weight="0.32960597" />
+      <window_info anchor="right" id="Python Console" order="5" sideWeight="0.4970297" visible="true" weight="0.32960597" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -310,8 +312,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CLIENT_PROGRAM/src/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="48" lean-forward="true" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
+        <state relative-caret-position="373">
+          <caret line="48" column="91" selection-start-line="48" selection-start-column="91" selection-end-line="48" selection-end-column="91" />
           <folding>
             <element signature="e#185#195#0" expanded="true" />
           </folding>

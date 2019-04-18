@@ -13,14 +13,15 @@ from FirstResponder_struct import firstResponder
 
 def main():
 
-    # display main menu contents and get user's desired selection
+    # display main menu contents and get user's desired cmd selection
     user_cmd = mainMenu()
 
-    # execute corresponding functions depending on user's selection
+    # execute corresponding functions depending on user's cmd selection
     mainMenuSelection(user_cmd)
 
 ################################## ADDITIONAL FUNCTIONS
 
+# displays main menu content to user
 def mainMenu():
 
     # # debug: create initial firstResponder object to test valid OOP configuration
@@ -45,6 +46,7 @@ def mainMenu():
 
     return userCMD
 
+# handles what is to be executed depending on what cmd the user selected from the main menu
 def mainMenuSelection(cmd):
 
     # # debug
