@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e600645-c461-411f-bb22-62401e894db4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BACKEND/database/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/BACKEND/database/database.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CLIENT_PROGRAM/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/CLIENT_PROGRAM/src/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -12,7 +12,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/cse423firstresponders$main_ClientProgram.coverage" NAME="main_ClientProgram Coverage Results" MODIFIED="1555629202716" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/CLIENT_PROGRAM/src" />
+    <SUITE FILE_PATH="coverage/cse423firstresponders$main_ClientProgram.coverage" NAME="main_ClientProgram Coverage Results" MODIFIED="1555630218529" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/CLIENT_PROGRAM/src" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -40,15 +40,19 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="md" value="2" />
-          <entry key="py" value="7" />
+          <entry key="ino" value="1" />
+          <entry key="jpg" value="1" />
+          <entry key="md" value="3" />
+          <entry key="py" value="9" />
           <entry key="pyi" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Markdown" value="2" />
-          <entry key="Python" value="5" />
+          <entry key="Image" value="1" />
+          <entry key="Markdown" value="3" />
+          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="Python" value="7" />
           <entry key="PythonStub" value="1" />
           <entry key="Scratch" value="2" />
         </counts>
@@ -56,13 +60,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="md" value="267" />
-          <entry key="py" value="215" />
+          <entry key="py" value="275" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Markdown" value="267" />
-          <entry key="Python" value="215" />
+          <entry key="Python" value="275" />
         </counts>
       </usages-collector>
     </session>
@@ -72,11 +76,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CLIENT_PROGRAM/src/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-180">
-              <caret line="34" column="40" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
+            <state relative-caret-position="573">
+              <caret line="85" column="10" selection-start-line="85" selection-start-column="10" selection-end-line="85" selection-end-column="10" />
               <folding>
                 <element signature="e#185#195#0" expanded="true" />
               </folding>
@@ -93,14 +97,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CLIENT_PROGRAM/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="FIRST">
-              <first_editor relative-caret-position="30">
-                <caret line="2" column="203" lean-forward="true" selection-start-line="2" selection-start-column="203" selection-end-line="2" selection-end-column="203" />
-              </first_editor>
-              <second_editor />
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BACKEND/database/database.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -122,8 +123,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/CLIENT_PROGRAM/src/FirstResponder_struct.py" />
-        <option value="$PROJECT_DIR$/CLIENT_PROGRAM/src/main.py" />
         <option value="$PROJECT_DIR$/CLIENT_PROGRAM/README.md" />
+        <option value="$PROJECT_DIR$/BACKEND/database/database.py" />
+        <option value="$PROJECT_DIR$/CLIENT_PROGRAM/src/main.py" />
       </list>
     </option>
   </component>
@@ -155,6 +157,23 @@
             <path>
               <item name="cse423firstresponders" type="b2602c69:ProjectViewProjectNode" />
               <item name="cse423firstresponders" type="462c0819:PsiDirectoryNode" />
+              <item name="BACKEND" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cse423firstresponders" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cse423firstresponders" type="462c0819:PsiDirectoryNode" />
+              <item name="BACKEND" type="462c0819:PsiDirectoryNode" />
+              <item name="configure_adhoc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cse423firstresponders" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cse423firstresponders" type="462c0819:PsiDirectoryNode" />
+              <item name="BACKEND" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cse423firstresponders" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cse423firstresponders" type="462c0819:PsiDirectoryNode" />
               <item name="CLIENT_PROGRAM" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -167,6 +186,12 @@
               <item name="cse423firstresponders" type="b2602c69:ProjectViewProjectNode" />
               <item name="cse423firstresponders" type="462c0819:PsiDirectoryNode" />
               <item name="FRONTEND" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cse423firstresponders" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cse423firstresponders" type="462c0819:PsiDirectoryNode" />
+              <item name="FRONTEND" type="462c0819:PsiDirectoryNode" />
+              <item name="wearable_v1.6.ino" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -249,10 +274,10 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5481928" weight="0.23676682" />
-      <window_info id="Database" order="1" show_stripe_button="false" sideWeight="0.45148516" side_tool="true" weight="0.17625134" />
-      <window_info id="Structure" order="2" sideWeight="0.45180723" side_tool="true" weight="0.23676682" />
-      <window_info id="Favorites" order="3" show_stripe_button="false" sideWeight="0.50165015" side_tool="true" weight="0.25171143" />
+      <window_info id="Database" order="0" show_stripe_button="false" sideWeight="0.45148516" side_tool="true" weight="0.17625134" />
+      <window_info id="Structure" order="1" sideWeight="0.45180723" side_tool="true" visible="true" weight="0.23676682" />
+      <window_info id="Favorites" order="2" show_stripe_button="false" sideWeight="0.50165015" side_tool="true" weight="0.25171143" />
+      <window_info active="true" content_ui="combo" id="Project" order="3" sideWeight="0.5481928" visible="true" weight="0.23676682" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32891566" />
@@ -260,49 +285,40 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" weight="0.32970297" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32891566" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32891566" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" show_stripe_button="false" weight="0.32960597" />
-      <window_info anchor="right" id="TODO" order="4" sideWeight="0.5036145" side_tool="true" weight="0.4427754" />
-      <window_info anchor="right" id="Python Console" order="5" sideWeight="0.49638554" weight="0.4427754" />
+      <window_info anchor="right" id="TODO" order="4" sideWeight="0.5019802" side_tool="true" weight="0.442492" />
+      <window_info anchor="right" id="Python Console" order="5" sideWeight="0.4980198" weight="0.442492" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/BACKEND/configure_adhoc/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="135">
-            <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BACKEND/configure_adhoc/client.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FRONTEND/ble_client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -327,13 +343,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CLIENT_PROGRAM/src/main.py">
+    <entry file="file://$PROJECT_DIR$/CLIENT_PROGRAM/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="30">
+            <caret line="2" column="203" lean-forward="true" selection-start-line="2" selection-start-column="203" selection-end-line="2" selection-end-column="203" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FRONTEND/Wearable_Schematic_bb.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BACKEND/configure_adhoc/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SECOND">
+          <first_editor relative-caret-position="135">
+            <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FRONTEND/wearable_v1.6.ino/wearable_v1.6.ino">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-180">
-          <caret line="34" column="40" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
+        <state relative-caret-position="-1854" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FRONTEND/ble_client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
           <folding>
-            <element signature="e#185#195#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BACKEND/database/database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -344,13 +394,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CLIENT_PROGRAM/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="30">
-            <caret line="2" column="203" lean-forward="true" selection-start-line="2" selection-start-column="203" selection-end-line="2" selection-end-column="203" />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/CLIENT_PROGRAM/src/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="573">
+          <caret line="85" column="10" selection-start-line="85" selection-start-column="10" selection-end-line="85" selection-end-column="10" />
+          <folding>
+            <element signature="e#185#195#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

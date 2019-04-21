@@ -1,7 +1,7 @@
 # Created by Patrick Archer on 15 April 2019
 
 """
-@file is meant to be executed on the Central Hub, as that is where the location database will be stored.
+@file is meant to be executed on the Central Hub, as that is where the queryable location database will be stored.
 
 More instructions can be found at:
     https://docs.python.org/2/library/sqlite3.html
@@ -14,7 +14,6 @@ import sqlite3
 ####################################
 
 def database():
-
     """
     INSTRUCTIONS:
 

@@ -71,17 +71,20 @@ def mainMenuSelection(cmd):
 
 # handles mainMenu.cmd1 functionality
 def protocol_cmd1():
-    print("\n[CONSOLE] Begin execution of protocol_cmd1().")
+    # TODO
+    print("\n[CONSOLE] Placeholder: Begin execution of protocol_cmd1() here.")
     main()
 
 # handles mainMenu.cmd2 functionality
 def protocol_cmd2():
-    print("\n[CONSOLE] Begin execution of protocol_cmd2().")
+    # TODO
+    print("\n[CONSOLE] Placeholder: Begin execution of protocol_cmd2() here.")
     main()
 
 # handles mainMenu.cmd3 functionality
 def protocol_cmd3():
-    print("\n[CONSOLE] Begin execution of protocol_cmd3().")
+    # TODO
+    print("\n[CONSOLE] Placeholder: Begin execution of protocol_cmd3() here.")
     main()
 
 
