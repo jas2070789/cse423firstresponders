@@ -36,7 +36,7 @@ def mainMenu():
     userCMD = input("""
     Please enter a cmd and press return.
     0 - Quit Program
-    1 - temporary_cmd_1
+    1 - Get all current location datas of active beacons
     2 - temporary_cmd_2
     3 - temporary_cmd_3
     \n""")
@@ -55,36 +55,60 @@ def mainMenuSelection(cmd):
     # if cmd == 0 (quit), terminate program
     if cmd == '0':
         sys.exit("\n[CONSOLE] Exit command registered. Terminating program now.")
-    # if cmd == 1 (cmd1), begin protocol to carry out desired functionality
+    # if cmd == 1 (getAllLocations), begin protocol to get all current location datas of active beacons
     elif cmd == '1':
-        protocol_cmd1()
+        print("\n[CONSOLE] Beginning execution of getAllLocations().")
+        getAllLocations()
     # if cmd == 2 (cmd2), begin protocol to carry out desired functionality
     elif cmd == '2':
+        print("\n[CONSOLE] Placeholder: Beginning execution of protocol_cmd2().")
         protocol_cmd2()
     # if cmd == 3 (cmd3), begin protocol to carry out desired functionality
     elif cmd == '3':
+        print("\n[CONSOLE] Placeholder: Beginning execution of protocol_cmd3().")
         protocol_cmd3()
     # if cmd is unknown or invalid, catch error and re-execute main()
     else:
         print("\n[CONSOLE] Invalid command entered. Please try again.")
         main()
 
-# handles mainMenu.cmd1 functionality
-def protocol_cmd1():
-    # TODO
-    print("\n[CONSOLE] Placeholder: Begin execution of protocol_cmd1() here.")
+# handles functionality to query all current location data from Hub and display results to user
+# NOTE: make sure client is connected to WADHOC network before trying to execute queries
+def getAllLocations():
+
+    # TODO:
+    """
+        1) Create network socket to Central Hub
+        2) Send API command to server to query for all data
+        3) Parse returned data and display to user
+        
+        * check for errors when making network connections
+        * take note of special cases regarding the existence of data on the Hub
+    """
+
+    # call main() to keep program running and bring user back to main menu
     main()
 
 # handles mainMenu.cmd2 functionality
+#   TODO
 def protocol_cmd2():
-    # TODO
-    print("\n[CONSOLE] Placeholder: Begin execution of protocol_cmd2() here.")
+
+    # TODO:
+    """
+        1) ...
+    """
+
     main()
 
 # handles mainMenu.cmd3 functionality
+#   TODO
 def protocol_cmd3():
-    # TODO
-    print("\n[CONSOLE] Placeholder: Begin execution of protocol_cmd3() here.")
+
+    # TODO:
+    """
+        1) ...
+    """
+
     main()
 
 
