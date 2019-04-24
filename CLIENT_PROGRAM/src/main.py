@@ -4,12 +4,18 @@
 @file is the main script that the Client will run to query data from the Central Hub.
 """
 
-################################## IMPORTS
+"""========== IMPORTS =========="""
 
 import sys
 from FirstResponder_struct import firstResponder
+import json
+import socket
 
-################################## MAIN()
+"""========== GLOBAL VARS =========="""
+
+# ...
+
+"""========== MAIN() =========="""
 
 def main():
 
@@ -19,7 +25,7 @@ def main():
     # execute corresponding functions depending on user's cmd selection
     mainMenuSelection(user_cmd)
 
-################################## ADDITIONAL FUNCTIONS
+"""========== ADDITIONAL FUNCTIONS =========="""
 
 # displays main menu content to user
 def mainMenu():
@@ -86,6 +92,8 @@ def getAllLocations():
         * take note of special cases regarding the existence of data on the Hub
     """
 
+
+
     # call main() to keep program running and bring user back to main menu
     main()
 
@@ -112,9 +120,9 @@ def protocol_cmd3():
     main()
 
 
-################################## SCOPE
+"""========== SCOPE =========="""
 
 if __name__ == '__main__':
     main()
 
-################################## _END_OF_FILE_
+"""========== /\ END OF FILE /\ =========="""
