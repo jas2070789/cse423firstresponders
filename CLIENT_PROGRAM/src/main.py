@@ -44,7 +44,6 @@ def mainMenu():
     0 - Quit Program
     1 - Get all current location datas of active beacons
     2 - temporary_cmd_2
-    3 - temporary_cmd_3
     \n""")
 
     # # debug
@@ -69,10 +68,6 @@ def mainMenuSelection(cmd):
     elif cmd == '2':
         print("\n[CONSOLE] Placeholder: Beginning execution of protocol_cmd2().")
         protocol_cmd2()
-    # if cmd == 3 (cmd3), begin protocol to carry out desired functionality
-    elif cmd == '3':
-        print("\n[CONSOLE] Placeholder: Beginning execution of protocol_cmd3().")
-        protocol_cmd3()
     # if cmd is unknown or invalid, catch error and re-execute main()
     else:
         print("\n[CONSOLE] Invalid command entered. Please try again.")
@@ -92,8 +87,6 @@ def getAllLocations():
         * take note of special cases regarding the existence of data on the Hub
     """
 
-
-
     # call main() to keep program running and bring user back to main menu
     main()
 
@@ -106,17 +99,7 @@ def protocol_cmd2():
         1) ...
     """
 
-    main()
-
-# handles mainMenu.cmd3 functionality
-#   TODO
-def protocol_cmd3():
-
-    # TODO:
-    """
-        1) ...
-    """
-
+    # call main() to keep program running and bring user back to main menu
     main()
 
 
