@@ -19,7 +19,7 @@ import subprocess
 pathToDB = "database/locations.db"
 
 # IP of the CH
-UDP_IP_HUB = "10.0.2.1"   # real IP address of CH
+UDP_IP_HUB = "10.0.2.1"   # real IPv4 address of CH
 # UDP_IP_HUB = "10.0.2.16"    # for testing purposes
 # UDP_IP_HUB = subprocess.check_output(['hostname', '--all-ip-addresses']).strip()    # for testing purposes
 
@@ -27,7 +27,7 @@ UDP_IP_HUB = "10.0.2.1"   # real IP address of CH
 print(UDP_IP_HUB)
 
 # IP of the Client device
-UDP_IP_CLIENT = "10.0.2.255"   # real IP address of Client device
+UDP_IP_CLIENT = "10.0.2.255"   # real IPv4 address of Client device
 # UDP_IP_CLIENT = "10.0.2.15"     # for testing purposes
 
 # network port for all communication between CH and other nodes
@@ -40,14 +40,11 @@ def main():
     # perform initial device setup
     setup()
 
-    # >> once initial setup is complete, and WADHOC connection is verified, attach to network socket and start listening
+    # >> once initial setup is complete, and a valid WADHOC connection is manually verified, attach to network socket and start listening
 
     # configure network socket and bind the socket to the CH IP and listening port
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     sock.bind((UDP_IP_HUB, UDP_PORT))
-
-    # # send test message to server
-    # sock.sendto(MESSAGE, (UDP_IP, UDP_PORT))
 
     # continuously repeat process of listening for a transmission then doing stuff with data from that trans.
     while True:
@@ -60,9 +57,30 @@ def main():
 
         # if transmission is from the Client, treat as query communication
         if addr[0] == UDP_IP_CLIENT:
-            # perform a complete database query and save the fetchResults into results_dbQueryAll
-            results_dbQueryAll = dbQueryAll()
-            print(results_dbQueryAll)
+            # >> split incoming transmission into delimited parts; store data accordingly
+
+            # >> Client Transmission Structure:  IP_ADDR | CMD
+
+            # split transmitted string according to delimiter char ("|") & strip of unnecessary chars (spaces, etc.)
+            splitTransmission = data.strip().split('|')
+            # save 1st delimited segment (Client IP address) into client_ipAddr
+            client_ipAddr = splitTransmission[0]
+            # save 2nd delimited segment (Client command) into client_cmd
+            client_cmd = splitTransmission[1]
+
+            # if transmission is from Client (redundant check) and the cmd == query entire location database
+            if client_ipAddr == UDP_IP_CLIENT and client_cmd == "QUERYALL":
+                # perform a complete database query and save the fetchResults into results_dbQueryAll
+                results_dbQueryAll = dbQueryAll()
+
+                # DEBUG
+                print(results_dbQueryAll)
+
+                # now that query results are fetched, send results back to Client
+                sock.sendto(results_dbQueryAll, (UDP_IP_CLIENT, UDP_PORT))
+            else:
+                print("[CONSOLE] ERROR: Invalid command received. Dropping transmission.")
+
         # if transmission is from anything else besides the Client, treat as Anchor communication
         else:
             # TODO: parse transmission, consistently validly extract data, save to database
@@ -126,6 +144,7 @@ def dbQueryAll():
     try:
         # "Open an active connection to the database file, as alias 'conn', then do ___ and close the connection."
         with sqlite3.connect(pathToDB) as conn:
+
             # reconfigure row_factory to export as a json dict.
             conn.row_factory = dict_factory
             # create database cursor
@@ -140,6 +159,7 @@ def dbQueryAll():
             fetchResults = json.loads(json.dumps(curs.fetchall()))
             # print(fetchResults)
             return fetchResults
+        
     except Error as e:
         print("[CONSOLE] ERROR: ", e)
 

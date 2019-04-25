@@ -105,7 +105,7 @@ def getAllLocations():
     cmd = "QUERYALL"
     # fully built transmission string to be sent to CH via network socket
     # transmission = cmd + "|" + UDP_IP_HUB + "|"
-    transmission = UDP_IP_HUB + "|" + cmd + "|"
+    transmission = UDP_IP_HUB + "|" + cmd
 
     # configure network socket and bind the socket to the CH IP and listening port
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
