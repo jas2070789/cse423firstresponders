@@ -10,50 +10,140 @@ import sys
 import json
 import sqlite3
 from sqlite3 import Error
+import socket
+import subprocess
 
 """========== GLOBAL VARS =========="""
 
 # path to location database file in persistent memory
 pathToDB = "database/locations.db"
 
+# IP of the CH
+UDP_IP_HUB = "10.0.2.1"   # real IP address of CH
+# UDP_IP_HUB = "10.0.2.16"    # for testing purposes
+# UDP_IP_HUB = subprocess.check_output(['hostname', '--all-ip-addresses']).strip()    # for testing purposes
+
+# DEBUG
+print(UDP_IP_HUB)
+
+# IP of the Client device
+UDP_IP_CLIENT = "10.0.2.255"   # real IP address of Client device
+# UDP_IP_CLIENT = "10.0.2.15"     # for testing purposes
+
+# network port for all communication between CH and other nodes
+UDP_PORT = 5005
+
 """========== MAIN() =========="""
 
 def main():
+
+    # perform initial device setup
+    setup()
+
+    # >> once initial setup is complete, and WADHOC connection is verified, attach to network socket and start listening
+
+    # configure network socket and bind the socket to the CH IP and listening port
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    sock.bind((UDP_IP_HUB, UDP_PORT))
+
+    # # send test message to server
+    # sock.sendto(MESSAGE, (UDP_IP, UDP_PORT))
+
+    # continuously repeat process of listening for a transmission then doing stuff with data from that trans.
+    while True:
+
+        # wait here to receive message from node
+        print("[CONSOLE]: Now listening for transmissions.")
+        data, addr = sock.recvfrom(1024)
+
+        # >> once a msg is received from a node, react accordingly and return to listening ASAP
+
+        # if transmission is from the Client, treat as query communication
+        if addr[0] == UDP_IP_CLIENT:
+            # perform a complete database query and save the fetchResults into results_dbQueryAll
+            results_dbQueryAll = dbQueryAll()
+            print(results_dbQueryAll)
+        # if transmission is from anything else besides the Client, treat as Anchor communication
+        else:
+            # TODO: parse transmission, consistently validly extract data, save to database
+            pass
+
+            # # DEBUG
+            # for index in results_dbQueryAll:
+            #     print(index)
+
+        # # for DEBUG
+        # print(str(data))
+
+        # queryResult = dbQueryAll()
+        # print(queryResult)
+
+
+
+
+
+    # # try connecting to database file and attaching a cursor
+    # try:
+    #     # "Open an active connection to the database file, as alias 'conn', then do ___ and close the connection."
+    #     with sqlite3.connect(pathToDB) as conn:
+    #         conn.row_factory = dict_factory
+    #         curs = conn.cursor()
+    #
+    #         """DEBUG: test json parsing functionality"""
+    #         results = testDB(curs)
+    #         conn.commit()
+    #
+    #         # convert returned data into a JSON dictionary
+    #         y = json.loads(json.dumps(results))
+    #         print(y)
+    #
+    #         # print(results)
+    #         # print(json.dumps(results))
+    #         # print(y[0])
+    #         # print(y[0]["num1"])
+    #
+    #         # parse returned data; if value stored in num1 == 78.38, return corresponding str1 value
+    #         tmpVal = 69
+    #         for i in y:
+    #             print(i, i["num1"], " ", i["num2"], " ", i["str1"])
+    #             if i["num1"] == tmpVal:
+    #                 print(i["str1"], "contains the value", tmpVal)
+    #         """END DEBUG"""
+    #
+    # except Error as e:
+    #     print("[CONSOLE] Error: ", e)
+
+"""========== ADDITIONAL FUNCTIONS =========="""
+
+# perform initial boot device setup procedures
+def setup():
+    pass
+
+# query database for all location records
+def dbQueryAll():
 
     # try connecting to database file and attaching a cursor
     try:
         # "Open an active connection to the database file, as alias 'conn', then do ___ and close the connection."
         with sqlite3.connect(pathToDB) as conn:
+            # reconfigure row_factory to export as a json dict.
             conn.row_factory = dict_factory
+            # create database cursor
             curs = conn.cursor()
 
-            """DEBUG: test json parsing functionality"""
-            results = testDB(curs)
+            # SQL: select every beacon/UUID & corresponding data
+            # TODO: set to actual table containing device info, rather than the test table
+            curs.execute("SELECT * FROM test")
+
+            # commit cursor executions and return fetch results
             conn.commit()
-
-            # convert returned data into a JSON dictionary
-            y = json.loads(json.dumps(results))
-            print(y)
-
-            # print(results)
-            # print(json.dumps(results))
-            # print(y[0])
-            # print(y[0]["num1"])
-
-            # parse returned data; if value stored in num1 == 78.38, return corresponding str1 value
-            tmpVal = 69
-            for i in y:
-                print(i, i["num1"], " ", i["num2"], " ", i["str1"])
-                if i["num1"] == tmpVal:
-                    print(i["str1"], "contains the value", tmpVal)
-            """END DEBUG"""
-
+            fetchResults = json.loads(json.dumps(curs.fetchall()))
+            # print(fetchResults)
+            return fetchResults
     except Error as e:
-        print("[CONSOLE] Error: ", e)
+        print("[CONSOLE] ERROR: ", e)
 
-"""========== ADDITIONAL FUNCTIONS =========="""
-
-# debug: create some fake table and do stuff w/ it in SQL (technically sqlite3)
+# DEBUG: create some fake table and do stuff w/ it in SQL (technically sqlite3)
 def testDB(cursor):
 
     # do a bunch of random SQL commands to test functionality

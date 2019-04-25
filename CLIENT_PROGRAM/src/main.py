@@ -10,10 +10,25 @@ import sys
 from FirstResponder_struct import firstResponder
 import json
 import socket
+import subprocess
+from sqlite3 import Error
 
 """========== GLOBAL VARS =========="""
 
-# ...
+# IP of the CH
+UDP_IP_HUB = "10.0.2.1"   # real IP address of CH
+# UDP_IP_HUB = "10.0.2.16"    # for testing purposes
+#UDP_IP_HUB = subprocess.check_output(['hostname', '--all-ip-addresses']).strip()    # for testing purposes
+
+# # DEBUG
+# print(UDP_IP_HUB)
+
+# IP of the Client device
+UDP_IP_CLIENT = "10.0.2.255"   # real IP address of Client device
+# UDP_IP_CLIENT = "10.0.2.15"     # for testing purposes
+
+# network port for all communication between CH and other nodes
+UDP_PORT = 5005
 
 """========== MAIN() =========="""
 
@@ -30,7 +45,7 @@ def main():
 # displays main menu content to user
 def mainMenu():
 
-    # # debug: create initial firstResponder object to test valid OOP configuration
+    # # DEBUG: create initial firstResponder object to test valid OOP configuration
     # fr1 = firstResponder('001', 'A1', 'F1')
     # print("[CONSOLE] Initial: ", fr1.uuid)
     # fr1.changeClosestAnchor('A2')
@@ -42,11 +57,11 @@ def mainMenu():
     userCMD = input("""
     Please enter a cmd and press return.
     0 - Quit Program
-    1 - Get all current location datas of active beacons
+    1 - Get all current location data of active beacons
     2 - temporary_cmd_2
     \n""")
 
-    # # debug
+    # # DEBUG
     # print("[CONSOLE] Entered user cmd: ", userCMD)
 
     return userCMD
@@ -54,7 +69,7 @@ def mainMenu():
 # handles what is to be executed depending on what cmd the user selected from the main menu
 def mainMenuSelection(cmd):
 
-    # # debug
+    # # DEBUG
     # print("mainMenuSelection.cmd = ", cmd)
 
     # if cmd == 0 (quit), terminate program
@@ -77,31 +92,72 @@ def mainMenuSelection(cmd):
 # NOTE: make sure client is connected to WADHOC network before trying to execute queries
 def getAllLocations():
 
-    # TODO:
+    # TODO
     """
-        1) Create network socket to Central Hub
-        2) Send API command to server to query for all data
-        3) Parse returned data and display to user
+        1) Parse returned data and display to user
+        2) Socket binding: Special cases and error checking
         
         * check for errors when making network connections
         * take note of special cases regarding the existence of data on the Hub
     """
 
+    # cmd to query all current location data from CH
+    cmd = "QUERYALL"
+    # fully built transmission string to be sent to CH via network socket
+    # transmission = cmd + "|" + UDP_IP_HUB + "|"
+    transmission = UDP_IP_HUB + "|" + cmd + "|"
+
+    # configure network socket and bind the socket to the CH IP and listening port
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    sock.bind((UDP_IP_CLIENT, UDP_PORT))
+
+    # # DEBUG
+    # print(transmission)
+
+    # send transmission to CH
+    print("[CONSOLE]: Now sending transmission to Hub.")
+    sock.sendto(transmission, (UDP_IP_HUB, UDP_PORT))
+    # wait to receive transmission from CH
+    print("[CONSOLE]: Now listening for transmissions.")
+    data, addr = sock.recvfrom(1024)
+
+    # save data, IP, and PORT to vars
+    queryResults = [data, addr[0], addr[1]]  # sender_DATA, sender_IP, sender_PORT
+
+    # DEBUG
+    print(queryResults)
+    # "data"
+    print(queryResults[0])
+    # "addr[0]"
+    print(queryResults[1])
+    # "addr[1]"
+    print(queryResults[2])
+
+    # DEBUG: load data (queryResults[0]) into json parser & store returned result
+    try:
+        tmp = json.loads(json.dumps(queryResults[0]))
+        print(tmp)
+    except Error as e:
+        print("[CONSOLE] ERROR: ", e)
+
+    # print(tmp["some_anchor_id"])
+
+    # TODO: Parse data (JSON?) and store subdatas to local vars
+    # TODO: Display now-localized data to user via terminal
+
     # call main() to keep program running and bring user back to main menu
     main()
 
 # handles mainMenu.cmd2 functionality
-#   TODO
 def protocol_cmd2():
 
-    # TODO:
+    # TODO
     """
         1) ...
     """
 
     # call main() to keep program running and bring user back to main menu
     main()
-
 
 """========== SCOPE =========="""
 
