@@ -53,13 +53,15 @@ def mainMenu():
     # fr1.changeCurrentFloor('F3')
     # print("[CONSOLE] Change CF to F2: ", fr1.current_floor)
 
-    print("\n\t======== MAIN MENU ========")
+    print("\n\n========================== MAIN MENU ==========================")
     userCMD = input("""
     Please enter a cmd and press return.
     0 - Quit Program
-    1 - Get all current location data of active beacons
-    2 - temporary_cmd_2
+    1 - Query for all current location data of active beacons
+    2 - temporary_cmd_2 (to be replaced by future-dev'd operation)
     \n""")
+    print("\n===============================================================")
+
 
     # # DEBUG
     # print("[CONSOLE] Entered user cmd: ", userCMD)
@@ -77,15 +79,17 @@ def mainMenuSelection(cmd):
         sys.exit("\n[CONSOLE] Exit command registered. Terminating program now.")
     # if cmd == 1 (getAllLocations), begin protocol to get all current location datas of active beacons
     elif cmd == '1':
-        print("\n[CONSOLE] Beginning execution of getAllLocations().")
-        getAllLocations()
+        print("\n\n[CONSOLE] Beginning execution of getAllLocations().\n")
+        # DEBUG: use test_gAL() to test JSON parsing; use gAL() for real transmission operations
+        test_getAllLocations()
+        # getAllLocations()
     # if cmd == 2 (cmd2), begin protocol to carry out desired functionality
     elif cmd == '2':
-        print("\n[CONSOLE] Placeholder: Beginning execution of protocol_cmd2().")
+        print("\n\n[CONSOLE] PLACEHOLDER: Beginning execution of protocol_cmd2().\n")
         protocol_cmd2()
     # if cmd is unknown or invalid, catch error and re-execute main()
     else:
-        print("\n[CONSOLE] Invalid command entered. Please try again.")
+        print("\n\n[CONSOLE] Invalid command entered. Please try again.\n")
         main()
 
 # handles functionality to query all current location data from Hub and display results to user
@@ -94,11 +98,8 @@ def getAllLocations():
 
     # TODO
     """
-        1) Parse returned data and display to user
-        2) Socket binding: Special cases and error checking
-        
-        * check for errors when making network connections
-        * take note of special cases regarding the existence of data on the Hub
+        1) Check for errors when making network connections
+        2) Take note of special cases regarding the existence of data on the Hub
     """
 
     # cmd to query all current location data from CH
@@ -106,6 +107,9 @@ def getAllLocations():
     # fully built transmission string to be sent to CH via network socket
     # transmission = cmd + "|" + UDP_IP_HUB + "|"
     transmission = UDP_IP_HUB + "|" + cmd
+
+    # # DEBUG
+    # print(transmission)
 
     # configure network socket and bind the socket to the CH IP and listening port
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -140,15 +144,73 @@ def getAllLocations():
     except Error as e:
         print("[CONSOLE] ERROR: ", e)
 
-    # print(tmp["some_anchor_id"])
+    # Parse transmitted JSON data, store to tmp vars, and display to user
+    try:
+        parsedData = json.loads(json.dumps(tmp))
 
-    # TODO: Parse data (JSON?) and store subdatas to local vars
-    # TODO: Display now-localized data to user via terminal
+        # DEBUG
+        # print(tmp)
+        # print(parsedData)
+
+        print("\t\n\n+++++++++++ QUERY RESULTS +++++++++++")
+
+        for i in parsedData:
+            count = 0
+            for j in i:
+                if count == 0:
+                    print("\n\tLatest Timestamp: " + str(j))
+                elif count == 1:
+                    print("\tDevice ID: " + str(j))
+                elif count == 2:
+                    print("\tQuadrant Heading: " + str(j))
+                elif count == 3:
+                    print("\tCurrent Step Count: " + str(j))
+                else:
+                    print("[CONSOLE] ERROR: Invalid JSON data parsed.")
+                count = count + 1
+
+        print("\n+++++++++++++++++++++++++++++++++++++")
+    except Error as e:
+        print("[CONSOLE] ERROR: ", e)
 
     # call main() to keep program running and bring user back to main menu
     main()
 
-# handles mainMenu.cmd2 functionality
+# DEBUG: used to test if JSON parsing properly & user is being displayed formatted outputs
+def test_getAllLocations():
+
+    tmpData = [(u'2019', u'1', 4, 56), (u'2019', u'2', 2, 65)]
+
+    try:
+        parsedData = json.loads(json.dumps(tmpData))
+        print("tmpData: " + str(tmpData))
+        print("parsedData: " + str(parsedData))
+    except Error as e:
+        print("[CONSOLE] ERROR: ", e)
+
+    print("\t\n\n+++++++++++ QUERY RESULTS +++++++++++")
+
+    for i in parsedData:
+        count = 0
+        for j in i:
+            if count == 0:
+                print("\n\tLatest Timestamp: " + str(j))
+            elif count == 1:
+                print("\tDevice ID: " + str(j))
+            elif count == 2:
+                print("\tQuadrant Heading: " + str(j))
+            elif count == 3:
+                print("\tCurrent Step Count: " + str(j))
+            else:
+                print("err")
+            count = count + 1
+
+    print("\n+++++++++++++++++++++++++++++++++++++")
+
+    # call main() to keep program running and bring user back to main menu
+    main()
+
+# TEMPORARY: handles mainMenu.cmd2 functionality
 def protocol_cmd2():
 
     # TODO
