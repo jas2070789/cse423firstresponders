@@ -71,17 +71,18 @@ int tiltVal = 0; // variable to store tilt input
 int tiltOldVal; // tilt last state
 int stepCount = 0; // state change iterator
 
-  String empID = "001"; // track employee ID    
-  String buffPacket;
-  int oldQuad;  //track state change
-  int count = 0; // placeholder to iterate through packetBuilder
-  int packetNumber = 0;   // So the gateway can place packet in correct order within the file
+// Quadrant Builder Variable
+String empID = "001"; // track employee ID    
+String buffPacket;
+int oldQuad;  //track state change
+int count = 0; // placeholder to iterate through packetBuilder
+int packetNumber = 0;   // So the gateway can place packet in correct order within the file
 
-  // STRTX() variables
-  int transmit;          // In order to ensure proper packet data exists within IMU data string
-  int maxTransmit = 5;
-  boolean arrayEmpty = false;
-  boolean transmitSuccess = false;
+// STRTX() variables
+int transmit;          // In order to ensure proper packet data exists within IMU data string
+int maxTransmit = 5;
+boolean arrayEmpty = false;
+boolean transmitSuccess = false;
 
 /* The BLE service information */
 int32_t wearServiceId;
@@ -96,17 +97,19 @@ SoftwareSerial bluefruitSS = SoftwareSerial(BLUEFRUIT_SWUART_TXD_PIN, BLUEFRUIT_
 Adafruit_BluefruitLE_UART ble(bluefruitSS, BLUEFRUIT_UART_MODE_PIN,
                       BLUEFRUIT_UART_CTS_PIN, BLUEFRUIT_UART_RTS_PIN);
 
+
+
+/********************************************************************/
+
 void error(const __FlashStringHelper*err) {
   Serial.println(err);
   while (1);
 }
 
-/********************************************************************/
-
 void ReadHeading() { // Output: HEADING
   imu::Vector<3> euler = bno.getVector(Adafruit_BNO055::VECTOR_EULER);
   heading = (float)euler.x();
-  heading -= 90; // Adjust for true north
+  heading -= 90; // Adjust for IMU orientation
 
   if (heading < 0 ) {
     heading = 360 + heading;
@@ -164,14 +167,7 @@ void quadrantBuilder() {
       
       //.getBytes(buff,PACKET_LENGTH)
       String str = packetBuilder.substring(0,PACKET_LENGTH);
-      packetData[packetNumber] = str;
-//      Serial.print("Str: ");
-//      Serial.println(str);
-//
-//    for(int i = 0; i<packetNumber; i++){
-//         Serial.print("Packet Array: ");
-//         Serial.println(packetData[i]);
-//      }  
+      packetData[packetNumber] = str; 
      
       // delete last packet
       packetBuilder = packetBuilder.substring(PACKET_LENGTH);
@@ -299,7 +295,7 @@ void StrTX(){
   Serial.println(maxTransmit);
 }
 void fullPacketArray(){
-//    Serial.println("FULL ARRAY");
+    Serial.println("FULL ARRAY");
 //    int a = 0;
 //    for (a=0; a < PACKET_ARRAY_LENGTH; a++) {
 //      Serial.println(" ARRAY BEFORE");
@@ -309,6 +305,7 @@ void fullPacketArray(){
 //    }
     transmit = 0;
     maxTransmit = 5;
+    packetNumber = 0;
     int halfArray = floor(0.5*PACKET_ARRAY_LENGTH);
     int j = halfArray;
     for (int i = 0; i<halfArray; i++) {
